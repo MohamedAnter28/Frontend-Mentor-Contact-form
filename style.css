@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --main-bg: hsl(148, 38%, 91%);
+  --secondary-color: hsl(169, 82%, 27%);
+  --error-color: hsl(0, 66%, 54%);
+  --card-color: hsl(0, 0%, 100%);
+  --main-color: hsl(186, 15%, 59%);
+  --heading-color: hsl(187, 24%, 22%);
+}
+
+body{
+  font-family: "Karla", sans-serif;
+  background-color: var(--main-bg);
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+
+#card{
+  background-color: var(--card-color);
+  padding: 2rem;
+  border-radius: .5rem;
+}
+
+
+#card h1{
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+}
+
+
+#card .form-item{
+  margin-bottom: 1rem;
+}
+
+#card .container .col-1{
+  display: flex;
+  gap: 1rem;
+}
+
+
+#card .container .col-1 div,
+#card .container .col-2{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+label{
+  color: var(--heading-color);
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.star{
+  color: var(--secondary-color);
+  margin-left: 4px;
+}
+
+input[type='text'],
+input[type='email'],
+textarea{
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--heading-color);
+  outline: none;
+  color: var(--heading-color);
+  cursor: pointer;
+}
+
+
+input[type="text"].error,textarea.error{
+  border: 1px solid var(--error-color);
+  outline: 1px solid var(--error-color);
+}
+
+
+input[type="text"]:focus,textarea:focus{
+  border: 1px solid var(--secondary-color);
+  outline: 1px solid var(--secondary-color);
+}
+
+
+.error-ms,
+#card .container .col-1 div .error-ms,
+#card .container .col-5 .error-ms{
+  display: none;
+  color: var(--error-color);
+  margin-top: 3px;
+  font-size: 13px;
+}
+
+.error-ms.active,
+#card .container .col-1 div .error-ms.active,
+#card .container .col-5 .error-ms.active{
+  display: block;
+}
+
+
+#card .container .col-3 .radio-inputs{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+
+#card .container .col-3 .radio-inputs div{
+  cursor: pointer;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  outline: 1px solid var(--main-color);
+  border-radius: 0.35rem;
+}
+
+
+input[type="radio"]{
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+
+#card .container .col-3 .radio-inputs div label{
+  position: relative;
+  padding-left: 20px;
+  margin-top: 6px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#card .container .col-3 .radio-inputs div.active{
+  background-color: var(--main-bg);
+}
+
+#card .container .col-3 .radio-inputs div label::before{
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--secondary-color);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+}
+
+
+input[type="radio"]:checked + label::after,
+input[type="radio"]:not(:checked):hover + label::after{
+  content: "";
+  background-color: var(--secondary-color);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  position: absolute;
+  left: 4px;
+  top: 5px;
+}
+
+input[type="radio"]:not(:checked):hover + label::after{
+  opacity: 0.2;
+}
+
+
+#card .container .col-5 div{
+  display: flex;
+  align-self: center;
+  gap: 1rem;
+}
+
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--main-color);
+  border-radius: 3px;
+  position: relative;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked::before {
+  content: '✔';
+  font-size: 14px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--secondary-color);
+}
+
+label {
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+
+textarea{
+  margin-top: 3px;
+}
+
+
+.btn{
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--secondary-color);
+  color: var(--card-color);
+  border: none;
+  outline: none;
+  border-radius: 0.35rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn:hover{
+  background-color: var(--heading-color);
+}
+
+.succes-ms{
+  display: none;
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--heading-color);
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.succes-ms.active{
+  display: block;
+  opacity: 1;
+  animation: fadeInOut 7s forwards;
+}
+
+
+.succes-ms .container{
+  padding: 1rem 2rem;
+}
+
+
+.succes-ms .container div{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.succes-ms div img{
+  margin-right: 6px;
+}
+
+.succes-ms div h4{
+  color: var(--card-color);
+}
+
+
+.succes-ms .container p{
+  font-size: 16px;
+  color: var(--main-color);
+}
+
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@media (max-width:500px){
+  .col-1{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col-3 .radio-inputs{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label{
+    font-size: 14px;
+  }
+
+  textarea{
+    height: 200px;
+  }
+
+  .sucsess-message{
+    width: 35ch;
+    top: 5%;
+  }
+}
+
+@media (max-width: 190px){
+  label{
+    font-size: 13px;
+  }
+}
